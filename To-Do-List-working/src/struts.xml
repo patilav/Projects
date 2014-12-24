@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    
+     <constant name="struts.multipart.maxSize" value="4294967295" />
+	<package name="taskManager" extends="struts-default">
+		
+	   
+	    
+		<action name="login" class="action.LoginCheck" method="execute">
+			<result name="user">success_customer.jsp</result>
+			<result name="error">customer_login_again.jsp</result>
+		</action>
+		
+		<action name="secret_question" class="action.ForgotPasswordAction" method="getSecretQuestion">
+		    <result name="done">forgot_password.jsp</result>
+		    <result name="not done">error.jsp</result>
+		</action>
+		
+		<action name="setNewPassword" class="action.ForgotPasswordAction" method="setNewPassword">
+		    <result name="done">forgot_password.jsp</result>
+		    <result name="not done">error.jsp</result>
+		</action>
+		
+		<action name="changePassword" class="action.ForgotPasswordAction" method="changePassword">
+		    <result name="done">index.jsp</result>
+		    <result name="not done">error.jsp</result>
+		</action>
+		
+		<action name="viewEvents" class="action.ViewEventAction" method="simpleViewOfEvents">
+			<result name="done">event_view.jsp</result>
+			<result name="error">customer_login_again.jsp</result>
+		</action>
+		
+		<action name="viewAppointments" class="action.AppointmentAction" method="simpleView">
+		    <result name="done">appointment_view.jsp</result>
+		     <result name="not done">error.jsp</result> 
+		</action>
+		
+		<action name="homePage" class="action.LoginCheck" method="homePageAction">
+			<result name="success">success_customer.jsp</result>
+			<result name="error">customer_login_again.jsp</result>
+		</action>
+		
+		<action name="register" class="action.RegisterAction" method="execute">
+			<result name="done">index.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		<action name="displayCal" class="action.LoginCheck" method="displayCalendarAction">
+			<result name="success">success_customer.jsp</result>
+			<result name="error">customer_login_again.jsp</result>
+		</action>
+		
+		<action name="eventAdd" class="action.EventAction" method="execute">
+			<result name="done">success_customer.jsp</result>
+			<result name="input">event_add.jsp</result>
+			<result name="not done">error_event_add.jsp</result>
+		</action>
+
+		<action name="openEventEdit" class="action.ViewEventAction" method="viewEventForEdit">
+			<result name="done">event_edit.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+		
+		<action name="openAppointmentEdit" class="action.AppointmentAction" method="viewAppointmentForEdit">
+			<result name="done">appointment_edit.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+		
+		
+		<action name="deleteEvent" class="action.ViewEventAction" method="deleteEvent">
+			<result name="done">success_customer.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+				
+		<action name="deleteAppointment" class="action.AppointmentAction" method="deleteAppointment">
+			<result name="done">success_customer.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+		
+			<action name="deleteNotes" class="action.NotesAction" method="deleteNotes">
+			<result name="done">success_customer.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+		
+		<action name="eventEdit" class="action.EventAction" method="eventEditAction">
+			<result name="done">success_event_edit.jsp</result>
+			<result name="input">event_edit.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+
+		<action name="eventView" class="action.EventAction" method="viewEvents">
+			<result name="done">event_view.jsp</result>
+		</action>
+		
+		<action name="openNotesEdit" class="action.NotesAction" method="viewNotesForEdit">
+			<result name="done">notes_edit.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+		
+		
+		<action name="notesAdd" class="action.NotesAction" method="execute">  
+           <interceptor-ref name="defaultStack">
+                
+                <param name="fileUpload.allowedTypes">  
+                    image/png,image/gif,image/jpeg,image/pjpeg  
+                                </param> 
+                
+                
+            </interceptor-ref>  
+            <result name="done">success_customer.jsp</result>
+            <result name="not done">error_notes_add.jsp</result>  
+            <result name="input">notes_add.jsp</result>  
+        </action>
+		
+		<action name="appointmentAdd" class="action.AppointmentAction" method="execute">
+		    <result name="done">success_customer.jsp</result>
+		    <result name="not done">error_appointment_add.jsp</result>
+		    
+		</action>
+		
+		<action name="notesView" class="action.NotesAction" method="simpleView">
+		    <result name="done">notes_view.jsp</result>
+		    
+		</action>
+		
+		
+		
+		
+		<action name="notesEdit" class="action.NotesAction" method="editNotesAction">
+          <interceptor-ref name="fileUpload">  
+                  
+  
+                <param name="allowedTypes">  
+                    image/png,image/gif,image/jpeg,image/pjpeg  
+                                </param>  
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>  		    
+			<result name="done">notes_view.jsp</result>
+			<result name="input">notes_edit.jsp</result>
+			<result name="not done">error.jsp</result>
+		</action>
+	
+		
+		
+		
+	</package>
+</struts>

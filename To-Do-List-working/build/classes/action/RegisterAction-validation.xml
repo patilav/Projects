@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="username">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Username is mandatory!</message>
+		</field-validator>
+	</field>
+
+	<field name="fname">
+		<field-validator type="regex">
+			<param name="expression">[A-Z,a-z]</param>
+			<message>First Name must contain alphabets only!</message>
+		</field-validator>
+
+
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>First Name is mandatory!</message>
+		</field-validator>
+	</field>
+
+	<field name="lname">
+		<field-validator type="regex">
+			<param name="expression">[A-Z,a-z]</param>
+			<message>Last Name must contain alphabets only!</message>
+		</field-validator>
+
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Last Name is mandatory!</message>
+		</field-validator>
+	</field>
+
+	<field name="dob">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>DOB is mandatory</message>
+		</field-validator>
+
+		<field-validator type="regex">
+			<param name="expression">[0-9,/]</param>
+			<message>Date should be in the given format only</message>
+		</field-validator>
+	</field>
+
+	<field name="password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Password is mandatory</message>
+		</field-validator>
+	</field>
+
+	<field name="confirmPassword">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Confirm Password is mandatory</message>
+		</field-validator>
+	</field>
+
+	<field name="confirmPassword">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[password == confirmPassword]]></param>
+			<message>Password and Confirm password don't match.</message>
+		</field-validator>
+	</field>
+
+	<field name="secretQuestion">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Question is mandatory</message>
+		</field-validator>
+	</field>
+
+	<field name="secretAnswer">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Answer is mandatory</message>
+		</field-validator>
+	</field>
+   
+   <field name="homePhone">
+		<field-validator type="regex">
+				<param name="expression"><![CDATA[\d{3}\d{3}\d{4}]]></param>
+			<message>Home Phone number must contain 10 digit numbers only!</message>
+		</field-validator>
+	</field>
+
+   <field name="workPhone">
+   		<field-validator type="regex">
+		 	<param name="expression"><![CDATA[\d{3}\d{3}\d{4}]]></param>
+			<message>Work Phone number must contain 10 digit numbers only!</message>
+		</field-validator>
+	</field>
+
+   <field name="mobilePhone">
+		<field-validator type="regex">
+			<param name="expression"><![CDATA[\d{3}\d{3}\d{4}]]></param>
+			<message>Mobile Phone number must contain 10 digit numbers only!</message>
+		</field-validator>
+	</field>
+
+</validators>
+	

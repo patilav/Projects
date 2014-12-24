@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Event Name is mandatory!</message>
+		</field-validator>
+
+	</field>
+
+		<field name="startDate">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Start Date is mandatory</message>
+		</field-validator>
+	</field>
+
+	<field name="endDate">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>End Date is mandatory</message>
+		</field-validator>
+		
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[endDate >= startDate]]></param>
+			<message>End Date can not be less than Start Date.</message>
+		</field-validator>
+	</field>
+	
+</validators>
+	

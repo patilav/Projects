@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="name">
+		<field-validator type="required">
+			<param name="trim">true</param>
+			<message>Appointment Title is mandatory</message>
+		</field-validator>
+
+	</field>
+
+		<field name="dateOfAppointment">
+		<field-validator type="required">
+			<param name="trim">true</param>
+			<message>Appointment Date is mandatory</message>
+		</field-validator>
+		
+		<field-validator type="regex">
+			<param name="expression">[0-9,/]</param>
+			<message>Appointment Date should be in the given format only</message>
+		</field-validator>
+	
+	</field>
+	
+		
+</validators>
+	
